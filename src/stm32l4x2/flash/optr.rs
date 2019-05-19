@@ -295,6 +295,48 @@ impl SRAM2_RSTR {
         self.bit()
     }
 }
+#[doc = r" Value of the field"]
+pub struct NSWBOOT0R {
+    bits: bool,
+}
+impl NSWBOOT0R {
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        self.bits
+    }
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+}
+#[doc = r" Value of the field"]
+pub struct NBOOT0R {
+    bits: bool,
+}
+impl NBOOT0R {
+    #[doc = r" Value of the field as raw bits"]
+    #[inline]
+    pub fn bit(&self) -> bool {
+        self.bits
+    }
+    #[doc = r" Returns `true` if the bit is clear (0)"]
+    #[inline]
+    pub fn bit_is_clear(&self) -> bool {
+        !self.bit()
+    }
+    #[doc = r" Returns `true` if the bit is set (1)"]
+    #[inline]
+    pub fn bit_is_set(&self) -> bool {
+        self.bit()
+    }
+}
 #[doc = r" Proxy"]
 pub struct _RDPW<'a> {
     w: &'a mut W,
@@ -578,6 +620,52 @@ impl<'a> _SRAM2_RSTW<'a> {
         self.w
     }
 }
+#[doc = r" Proxy"]
+pub struct _NSWBOOT0W<'a> {
+    w: &'a mut W,
+}
+impl<'a> _NSWBOOT0W<'a> {
+    #[doc = r" Sets the field bit"]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r" Clears the field bit"]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        const MASK: bool = true;
+        const OFFSET: u8 = 26;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
+#[doc = r" Proxy"]
+pub struct _NBOOT0W<'a> {
+    w: &'a mut W,
+}
+impl<'a> _NBOOT0W<'a> {
+    #[doc = r" Sets the field bit"]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r" Clears the field bit"]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r" Writes raw bits to the field"]
+    #[inline]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        const MASK: bool = true;
+        const OFFSET: u8 = 27;
+        self.w.bits &= !((MASK as u32) << OFFSET);
+        self.w.bits |= ((value & MASK) as u32) << OFFSET;
+        self.w
+    }
+}
 impl R {
     #[doc = r" Value of the register as raw bits"]
     #[inline]
@@ -714,6 +802,26 @@ impl R {
         };
         SRAM2_RSTR { bits }
     }
+    #[doc = "Bit 26 - Software BOOT0"]
+    #[inline]
+    pub fn n_swboot0(&self) -> NSWBOOT0R {
+        let bits = {
+            const MASK: bool = true;
+            const OFFSET: u8 = 26;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        };
+        NSWBOOT0R { bits }
+    }
+    #[doc = "Bit 27 - nBOOT0 option bit"]
+    #[inline]
+    pub fn n_boot0(&self) -> NBOOT0R {
+        let bits = {
+            const MASK: bool = true;
+            const OFFSET: u8 = 27;
+            ((self.bits >> OFFSET) & MASK as u32) != 0
+        };
+        NBOOT0R { bits }
+    }
 }
 impl W {
     #[doc = r" Reset value of the register"]
@@ -791,5 +899,15 @@ impl W {
     #[inline]
     pub fn sram2_rst(&mut self) -> _SRAM2_RSTW {
         _SRAM2_RSTW { w: self }
+    }
+    #[doc = "Bit 26 - Software BOOT0"]
+    #[inline]
+    pub fn n_swboot0(&mut self) -> _NSWBOOT0W {
+        _NSWBOOT0W { w: self }
+    }
+    #[doc = "Bit 27 - nBOOT0 option bit"]
+    #[inline]
+    pub fn n_boot0(&mut self) -> _NBOOT0W {
+        _NBOOT0W { w: self }
     }
 }

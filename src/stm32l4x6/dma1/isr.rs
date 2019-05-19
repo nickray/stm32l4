@@ -62,7 +62,7 @@ impl TEIF7R {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum HTIF7R {
     #[doc = "No half transfer event"]
-    NOTHALT,
+    NOTHALF,
     #[doc = "A half transfer event has occured"]
     HALF,
 }
@@ -81,7 +81,7 @@ impl HTIF7R {
     #[inline]
     pub fn bit(&self) -> bool {
         match *self {
-            HTIF7R::NOTHALT => false,
+            HTIF7R::NOTHALF => false,
             HTIF7R::HALF => true,
         }
     }
@@ -90,14 +90,14 @@ impl HTIF7R {
     #[inline]
     pub fn _from(value: bool) -> HTIF7R {
         match value {
-            false => HTIF7R::NOTHALT,
+            false => HTIF7R::NOTHALF,
             true => HTIF7R::HALF,
         }
     }
-    #[doc = "Checks if the value of the field is `NOTHALT`"]
+    #[doc = "Checks if the value of the field is `NOTHALF`"]
     #[inline]
-    pub fn is_not_halt(&self) -> bool {
-        *self == HTIF7R::NOTHALT
+    pub fn is_not_half(&self) -> bool {
+        *self == HTIF7R::NOTHALF
     }
     #[doc = "Checks if the value of the field is `HALF`"]
     #[inline]
